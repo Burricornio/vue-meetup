@@ -1,29 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-toolbar app dark class="primary">
+      <v-toolbar-side-icon
+        @click.native.stop="sideNav = !sideNav"
+        class="hidden-sm-and-up"
+      >
+      </v-toolbar-side-icon>
+      <v-toolbar-title>DevMeetup</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-xs-only">
+        <v-btn flat>
+          <v-icon left>supervisor_account</v-icon>
+          View Meetups
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <v-navigation-drawer v-model="sideNav">
+      <v-list>
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon>supervisor_account</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            View Meetups
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <main>
+
+    </main>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+
+export default {
+  name: 'App',
+  data () {
+    return {
+      sideNav: false
     }
   }
 }
-</style>
+</script>
