@@ -28,17 +28,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  data () {
-    return {
-      meetups: [
-        { imageURL: 'https://upload.wikimedia.org/wikipedia/commons/4/47/New_york_times_square-terabass.jpg', id: 'Lemmy', title: 'Meetup in New York'},
-        { imageURL: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Paris_-_Blick_vom_gro%C3%9Fen_Triumphbogen.jpg', id: 'Lemmy', title: 'Meetup in Paris'}
-      ]
-    }
+  computed: {
+    ...mapGetters({
+      meetups: 'featuredMeetups'
+    })
   },
   methods: {
-    onLoadMeetup(id) {
+    onLoadMeetup (id) {
       this.$router.push(`/meetups/${id}`)
     }
   }
@@ -54,5 +52,3 @@ export default {
   padding: 10px;
 }
 </style>
-
-
