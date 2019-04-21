@@ -80,7 +80,6 @@
                 type="submit"
               >
               Create Meetup</v-btn>
-              {{ submittableDateTime }}
             </v-flex>
           </v-layout>
         </form>
