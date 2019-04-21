@@ -49,8 +49,7 @@ export default {
   data () {
     return {
       email: '',
-      password: '',
-      confirmPassword: ''
+      password: ''
     }
   },
   computed: {
