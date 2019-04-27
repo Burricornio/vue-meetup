@@ -63,7 +63,7 @@ export default {
         menuItems = [
           { icon: 'supervisor_account', title: 'View Meetups', link: '/meetups' },
           { icon: 'room', title: 'Organize Meetups', link: '/meetup/new' },
-          { icon: 'person', title: 'Profile', link: '/profile' },
+          { icon: 'person', title: 'Profile', link: '/profile' }
         ]
       }
       return menuItems
