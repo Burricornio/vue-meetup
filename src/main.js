@@ -20,12 +20,13 @@ new Vue({
   render: h => h(App),
   created () {
     firebase.initializeApp({
-      apiKey: 'AIzaSyDTEle4OPsEZEZm-ZbogainDMn1hTjfc5c',
-      authDomain: 'gig-station.firebaseapp.com',
-      databaseURL: 'https://gig-station.firebaseio.com',
-      projectId: 'gig-station',
-      storageBucket: 'gig-station.appspot.com',
-      messagingSenderId: '1024660450614'
+      apiKey: 'AIzaSyAXGujPceJymIEFVAE0M0B5MRxlv3qstB0',
+      authDomain: 'meetups-cf627.firebaseapp.com',
+      databaseURL: 'https://meetups-cf627.firebaseio.com',
+      projectId: 'meetups-cf627',
+      storageBucket: 'meetups-cf627.appspot.com',
+      messagingSenderId: '790708988730',
+      appId: '1:790708988730:web:75f4fe6100313e63'
     })
   }
 }).$mount('#app')
