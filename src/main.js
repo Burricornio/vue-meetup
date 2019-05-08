@@ -28,5 +28,7 @@ new Vue({
       messagingSenderId: '790708988730',
       appId: '1:790708988730:web:75f4fe6100313e63'
     })
+    // Recibimos los meetups de Firebase
+    this.$store.dispatch('loadMeetups')
   }
 }).$mount('#app')

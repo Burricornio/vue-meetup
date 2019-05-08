@@ -29,6 +29,10 @@ export const store = new Vuex.Store({
     error: null
   },
   mutations: {
+    // Guardamos los meetups recibidos de la BBDD de Firebase en el store
+    setLoadedMeetups (state, meetups) {
+      state.loadedMeetups = meetups
+    },
     createMeetup (state, meetup) {
       state.loadedMeetups.push(meetup)
     },
@@ -46,6 +50,30 @@ export const store = new Vuex.Store({
     }
   },
   actions: {
+    // Recibe los meetups de la BBDD de Firebase
+    loadMeetups ({ commit }) {
+      // Muestra el preloader
+      commit('setLoading', true)
+      firebase.database().ref('meetups').once('value')
+        .then(data => {
+          const meetups = []
+          const obj = data.val()
+          for (let key in obj) {
+            meetups.push({
+              id: key,
+              title: obj[key].title,
+              description: obj[key].description,
+              imageURL: obj[key].imageURL,
+              date: obj[key].date
+            })
+          }
+          commit('setLoadedMeetups', meetups)
+          commit('setLoading', false)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
     createMeetup ({ commit }, payload) {
       const meetup = {
         title: payload.title,
