@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import AutGuard from './auth-guard'
 
 Vue.use(Router)
 
@@ -20,7 +21,8 @@ export default new Router({
     {
       path: '/meetup/new',
       name: 'CreateMeetup',
-      component: () => import('./views/Meetup/CreateMeetup.vue')
+      component: () => import('./views/Meetup/CreateMeetup.vue'),
+      beforeEnter: AutGuard
     },
     {
       path: '/meetups/:id',
@@ -31,7 +33,8 @@ export default new Router({
     {
       path: '/profile',
       name: 'Profile',
-      component: () => import('./views/User/Profile.vue')
+      component: () => import('./views/User/Profile.vue'),
+      beforeEnter: AutGuard
     },
     {
       path: '/signup',
