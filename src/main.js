@@ -28,6 +28,12 @@ new Vue({
       messagingSenderId: '790708988730',
       appId: '1:790708988730:web:75f4fe6100313e63'
     })
+    // Realizamos autosigning si tenemos un token en el navegador (asi rl usuario no tiene que introducir siempre sus datos)
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
     // Recibimos los meetups de Firebase
     this.$store.dispatch('loadMeetups')
   }
