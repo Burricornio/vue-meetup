@@ -7,10 +7,12 @@ import { store } from './store/index.js'
 import DateFilter from './filters/date'
 import * as firebase from 'firebase'
 import AlertComponent from '@/components/Shared/Alert.vue'
+import EditMeetupDetailsDialog from '@/views/Meetup/edit/EditMeetupDetailsDialog.vue'
 
 Vue.filter('date', DateFilter)
 
 Vue.component('app-alert', AlertComponent)
+Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 
 Vue.config.productionTip = false
 
