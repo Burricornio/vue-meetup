@@ -9,12 +9,14 @@ import * as firebase from 'firebase'
 import AlertComponent from '@/components/Shared/Alert.vue'
 import EditMeetupDetailsDialog from '@/views/Meetup/edit/EditMeetupDetailsDialog.vue'
 import EditMeetupDateDialog from '@/views/Meetup/edit/EditMeetupDateDialog.vue'
+import EditMeetupTimeDialog from '@/views/Meetup/edit/EditMeetupTimeDialog.vue'
 
 Vue.filter('date', DateFilter)
 
 Vue.component('app-alert', AlertComponent)
 Vue.component('app-edit-meetup-details-dialog', EditMeetupDetailsDialog)
 Vue.component('app-edit-meetup-date-dialog', EditMeetupDateDialog)
+Vue.component('app-edit-meetup-time-dialog', EditMeetupTimeDialog)
 
 Vue.config.productionTip = false
 
