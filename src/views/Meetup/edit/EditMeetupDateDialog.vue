@@ -28,30 +28,30 @@
 
 <script>
 export default {
-    props: ['meetup'],
-    data () {
-        return {
-            editDialog: false,
-            editableDate: null
-        }
-    },
-    methods: {
-        onSaveChanges () {
-            const newDate = new Date(this.meetup.date)
-            const newDay = new Date(this.editableDate).getUTCDate()
-            const newMonth = new Date(this.editableDate).getUTCMonth()
-            const newYear = new Date(this.editableDate).getUTCFullYear()
-            newDate.setUTCDate(newDay)
-            newDate.setUTCMonth(newMonth)
-            newDate.setUTCFullYear(newYear)
-            this.$store.dispatch('updateMeetupData', {
-                id: this.meetup.id,
-                date: newDate
-            })
-        }
-    },
-    created () {
-        this.editableDate = new Date(this.meetup.date).toISOString().substr(0, 10)
+  props: ['meetup'],
+  data () {
+    return {
+      editDialog: false,
+      editableDate: null
     }
+  },
+  methods: {
+    onSaveChanges () {
+      const newDate = new Date(this.meetup.date)
+      const newDay = new Date(this.editableDate).getUTCDate()
+      const newMonth = new Date(this.editableDate).getUTCMonth()
+      const newYear = new Date(this.editableDate).getUTCFullYear()
+      newDate.setUTCDate(newDay)
+      newDate.setUTCMonth(newMonth)
+      newDate.setUTCFullYear(newYear)
+      this.$store.dispatch('updateMeetupData', {
+        id: this.meetup.id,
+        date: newDate
+      })
+    }
+  },
+  created () {
+    this.editableDate = new Date(this.meetup.date).toISOString().substr(0, 10)
+  }
 }
 </script>
